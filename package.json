@@ -1,0 +1,26 @@
+{
+  "name": "projectbanco",
+  "version": "1.0.0",
+  "description": "",
+  "main": "nodemon server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Caroline-SC/Banco-Backend-Front-end.git"
+  },
+  "author": "Caroline-SC",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Caroline-SC/Banco-Backend-Front-end/issues"
+  },
+  "homepage": "https://github.com/Caroline-SC/Banco-Backend-Front-end#readme",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
