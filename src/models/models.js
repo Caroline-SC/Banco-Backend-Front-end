@@ -1,5 +1,6 @@
 import { DataTypes } from "sequelize";
 import database from "../database.js"
+import bcrypt from 'bcrypt'
 
 const Account = database.define('Account',{
     id: {
@@ -33,9 +34,26 @@ const Account = database.define('Account',{
     allowNull: false,
   },
 }, {
+  hooks:{
+    beforeCreate:async(account)=>{
+      if(account.senha){
+       account.senha = await bcrypt.hash(account.senha,6)
+      }
+    },
+    beforeUpdate: async(account)=>{
+      if(account.changed('senha')){
+        account.senha = await bcrypt.hash(account.senha,6)
+      }
+    }
+    
+  },
   tableName: 'contas',
   timestamps: false,
 });
+
+Account.prototype.validatePassword = async function(password) {
+  return await bcrypt.compare(password, this.senha)
+}
 
 const Transaction = database.define('Transacao', {
   id: {
